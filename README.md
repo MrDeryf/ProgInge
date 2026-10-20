@@ -33,7 +33,7 @@
 
 1. Клонируйте репозиторий:
    ```bash
-   git clone https://github.com/your-username/excuse-generator.git
+   git clone https://github.com/MrDeryf/ProgInge.git
    cd excuse-generator
    ```
 

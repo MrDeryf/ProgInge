@@ -1,70 +1,74 @@
-#  Генератор Оправданий (Excuse Generator)
+# Генератор Оправданий (Excuse Generator)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.100%2B-009688.svg)](https://fastapi.tiangolo.com/)
-[![Status](https://img.shields.io/badge/Status-В%20разработке-orange)]()
+[![CI/CD Status](https://img.shields.io/badge/CI%2FCD-Self--Hosted%20Runner-green)](./README.md)
 
-> **Генератор Оправданий** — это веб-приложение, которое генерирует правдоподобные и абсурдные оправдания для любых ситуаций на основе множества факторов: текущей даты, дня недели, фазы луны, погоды и случайных переменных.
+Веб-приложение, которое генерирует правдоподобные и абсурдные оправдания для любых ситуаций на основе множества факторов: текущей даты, дня недели, фазы луны, погоды и случайных переменных.
 
----
+## О проекте
 
-##  Возможности
+Данный проект разработан в рамках курса по Программной Инженерии. Основная цель — не только создание функционального приложения, но и выстраивание полноценной инженерной инфраструктуры вокруг него: от управления требованиями и трекинга задач до настройки CI/CD пайплайнов на self-hosted runners.
 
--  **Учёт погоды** — интеграция с внешним API для получения актуальных метеоданных.
--  **Лунный календарь** — фаза луны влияет на уровень абсурдности оправдания.
--  **Настраиваемый уровень правдоподобности** — от реалистичного до полностью фантастического.
--  **RESTful API** — возможность интеграции с другими сервисами.
+### Ключевые возможности
+- Контекстная генерация: алгоритмы учитывают до 5 и более факторов (погода, фаза луны, день недели и т.д.).
+- Настройка уровня абсурдности: параметр от "Официально-делового" до "Полный космос".
+- RESTful API: документированный интерфейс для интеграции генератора в сторонние приложения.
+- Простой веб-интерфейс: интуитивный UI для ввода параметров и отображения результата, написанный на Python.
 
----
+## Технологический стек
 
-## Стек технологий
+| Компонент | Технологии |
+| :--- | :--- |
+| Backend / API | Python (FastAPI) |
+| Frontend | Python (Streamlit) |
+| База данных | SQLite (для хранения шаблонов и логов) |
 
-| Компонент       | Технология                    | Версия   |
-| :-------------- | :---------------------------- | :------- |
-| **Backend**     | Python, FastAPI               | 3.10+    |
-| **Frontend**    | HTML, CSS, Vanilla JS         | ES2022   |
-| **База данных** | SQLite / PostgreSQL           | —        |
-| **Деплой**      | Docker, GitHub Actions        | —        |
-| **Тесты**       | pytest, httpx                 | —        |
+## Быстрый старт
 
----
+### Предварительные требования
+- Python >= 3.10
+- Доступ к настроенному self-hosted runner (для запуска полного пайплайна CI/CD)
 
-## Архитектура
+### Установка и запуск локально
 
-Упрощённая схема взаимодействия компонентов системы:
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/your-username/excuse-generator.git
+   cd excuse-generator
+   ```
 
-```mermaid
-graph TD
-    A[Клиент / Браузер] -->|HTTP POST| B(FastAPI Backend)
-    B -->|Запрос| C[(База шаблонов)]
-    B -->|Запрос| D[API Погоды]
-    B -->|Запрос| E[API Фазы Луны]
-    B -->|Логика генерации| F{Генератор}
-    F -->|JSON ответ| A
-```
+2. Установите зависимости:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
----
+3. Запустите приложение:
+   ```bash
+   # Запуск backend (если разделен)
+   uvicorn backend.main:app --reload
+   
+   # Запуск frontend интерфейса
+   streamlit run frontend/app.py
+   ```
 
-##  Быстрый старт
+4. Откройте браузер по адресу, указанному в терминале (обычно http://localhost:8501 для Streamlit).
 
-### 1. Клонирование репозитория
+## Инфраструктура и процессы
 
-    git clone https://github.com/your-username/excuse-generator.git
-    cd excuse-generator
+Этот проект делает упор на правильные инженерные практики. Подробная документация доступна в Wiki репозитория:
 
-### 2. Установка зависимостей
+- **[Архитектура проекта](https://github.com/your-username/excuse-generator/wiki/Architecture)**: Диаграммы компонентов и последовательности.
+- **[Планирование и процессы](https://github.com/your-username/excuse-generator/wiki/Planning)**: Диаграмма Ганта, управление зависимостями фич, кросс-командное взаимодействие.
+- **[CI/CD и инфраструктура](https://github.com/your-username/excuse-generator/wiki/CICD)**: Руководство по настройке self-hosted runner, этапы сборки, линтинга и тестирования.
+- **[Гайдлайн для контрибьюторов](https://github.com/your-username/excuse-generator/wiki/Contributing)**: Правила ветвления (Git Flow), код-ревью и стандарты коммитов.
 
-    python -m venv venv
-    source venv/bin/activate      # Linux / macOS
-    venv\Scripts\activate         # Windows
-    pip install -r requirements.txt
+## Команда проекта
 
-### 3. Запуск сервера
+| Имя | Роль | Контакты |
+| :--- | :--- | :--- |
+| Фёдор Шадаев | Backend Developer | [@github](https://github.com/MrDeryf) |
+| Даниил Пригожин | Frontend Developer | [@github](https://github.com/Volcharaitsme) |
 
-    uvicorn main:app --reload
+## Лицензия
 
-Сервер будет доступен по адресу: **http://localhost:8000**
-
-
-<div align="center">
+Этот проект распространяется под лицензией MIT. Подробности в файле LICENSE.

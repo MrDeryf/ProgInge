@@ -1,7 +1,5 @@
 # Генератор Оправданий (Excuse Generator)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![CI/CD Status](https://img.shields.io/badge/CI%2FCD-Self--Hosted%20Runner-green)](./README.md)
 
 Веб-приложение, которое генерирует правдоподобные и абсурдные оправдания для любых ситуаций на основе множества факторов: текущей даты, дня недели, фазы луны, погоды и случайных переменных.
 

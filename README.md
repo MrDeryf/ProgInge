@@ -54,7 +54,6 @@
 - **[Архитектура проекта](https://github.com/MrDeryf/ProgInge/wiki/Architecture)**: Диаграммы компонентов и последовательности.
 - **[Документация Api](https://github.com/MrDeryf/ProgInge/wiki/API-Documentation)**: Подробное описание апи.
 - **[Гайдлайн для контрибьюторов](https://github.com/MrDeryf/ProgInge/wiki/Contributing)**: Правила ветвления (Git Flow), код-ревью и стандарты коммитов.
-- 
 ## Команда проекта
 
 | Имя | Роль | Контакты |

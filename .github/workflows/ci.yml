@@ -34,18 +34,25 @@ jobs:
 
     - name: Verify application starts
       run: |
-        # Запуск uvicorn в фоне
-        Start-Process python -ArgumentList "-m", "uvicorn", "backend.main:app", "--port", "8000" -NoNewWindow -PassThru | Out-Null
+        # 1. Запускаем uvicorn и сохраняем объект процесса, чтобы знать его PID
+        $process = Start-Process python -ArgumentList "-m", "uvicorn", "backend.main:app", "--port", "8000" -NoNewWindow -PassThru
+        
+        # 2. Ждем 5 секунд, чтобы приложение успело подняться
         Start-Sleep -Seconds 5
         
-        # Проверка health endpoint
         try {
+            # 3. Делаем запрос к health endpoint
             $response = Invoke-RestMethod -Uri "http://localhost:8000/health"
             Write-Host "Health check passed: $($response.status)"
         } catch {
             Write-Error "Health check failed"
+            # 4. Если упало, всё равно убиваем процесс перед выходом
+            if ($process) { Stop-Process -Id $process.Id -Force -ErrorAction SilentlyContinue }
             exit 1
         }
         
-        # Остановка процесса
-        Get-Process -Name python -ErrorAction SilentlyContinue | Stop-Process -Force
+        # 5. Корректно останавливаем ТОЛЬКО этот конкретный процесс uvicorn
+        if ($process) {
+            Stop-Process -Id $process.Id -Force -ErrorAction SilentlyContinue
+            Write-Host "Uvicorn process stopped successfully."
+        }

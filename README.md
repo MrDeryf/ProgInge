@@ -51,11 +51,10 @@
 
 Этот проект делает упор на правильные инженерные практики. Подробная документация доступна в Wiki репозитория:
 
-- **[Архитектура проекта](https://github.com/your-username/excuse-generator/wiki/Architecture)**: Диаграммы компонентов и последовательности.
-- **[Планирование и процессы](https://github.com/your-username/excuse-generator/wiki/Planning)**: Диаграмма Ганта, управление зависимостями фич, кросс-командное взаимодействие.
-- **[CI/CD и инфраструктура](https://github.com/your-username/excuse-generator/wiki/CICD)**: Руководство по настройке self-hosted runner, этапы сборки, линтинга и тестирования.
-- **[Гайдлайн для контрибьюторов](https://github.com/your-username/excuse-generator/wiki/Contributing)**: Правила ветвления (Git Flow), код-ревью и стандарты коммитов.
-
+- **[Архитектура проекта](https://github.com/MrDeryf/ProgInge/wiki/Architecture)**: Диаграммы компонентов и последовательности.
+- **[Документация Api](https://github.com/MrDeryf/ProgInge/wiki/API-Documentation)**: Подробное описание апи.
+- **[Гайдлайн для контрибьюторов](https://github.com/MrDeryf/ProgInge/wiki/Contributing)**: Правила ветвления (Git Flow), код-ревью и стандарты коммитов.
+- 
 ## Команда проекта
 
 | Имя | Роль | Контакты |
